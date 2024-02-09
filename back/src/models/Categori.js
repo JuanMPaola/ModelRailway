@@ -1,7 +1,7 @@
 const {DataTypes} = require ('sequelize');
 
 module.exports = (sequelize) => {
-   sequelize.define('categori', {
+   sequelize.define('Categori', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -11,15 +11,9 @@ module.exports = (sequelize) => {
     title: {
         type: DataTypes.TEXT,
         allowNull: false,
-    },
-    images: {
-        type: DataTypes.ARRAY,
-        
-    },
-    description: {
-        type: DataTypes.TEXT
+    
     }
-
-   })
-
-}
+   },
+    {timestamps: false}
+   );
+};

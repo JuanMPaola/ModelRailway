@@ -1,8 +1,33 @@
-
 const { Sequelize } = require('sequelize');
-require('dotenv').config({path:'./.env'})
+const CategoriModel = require('./models/Categori');
+const PostModel = require('./models/Post');
+
+require('dotenv').config()
 const { USER, PORT, DBNAME, PASS} = process.env;
 
-const sequelize = new Sequelize(`postgres://${USER}:${PASS}@${PORT}:5432/${DBNAME}`)
 
-module.exports = {sequelize};
+const sequelize = new Sequelize(
+    `postgres://${USER}:${PASS}@${PORT}:5432/${DBNAME}`,
+    {logging:false}
+);
+
+
+// Injecting models
+CategoriModel(sequelize);
+PostModel(sequelize);
+
+// Creating relations
+
+const { Post, Categori} = sequelize.models;
+
+
+Categori.hasMany(Post);
+Post.belongsTo(Categori);
+
+module.exports = {
+    ...sequelize.models,
+    sequelize,
+    Categori,
+    Post
+
+};

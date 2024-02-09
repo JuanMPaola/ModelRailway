@@ -2,8 +2,13 @@ const { Router } = require('express');
 
 // Here import the controllers
 // e.g : const { getVdById } = require('../controllers/getVdById');
-const {getPostById} = require ('../handlers/GetPostById');
-const {getPosts} = require('../handlers/GetPosts');
+const { getAllPosts } = require('../handlers/Posts/GetAllPosts');
+const { getPostById } = require ('../handlers/Posts/GetPostById');
+const { postPost } = require('../handlers/Posts/PostPost');
+
+
+const { getAllCategoris } = require('../handlers/Categoris/GetAllCategoris');
+const { postCategori } = require('../handlers/Categoris/PostCategori');
 
 
 const router = Router();
@@ -11,11 +16,15 @@ const router = Router();
 
 // Here config the routers using the controllers
 // e.g : router.get("/posts/:id", getVdById);
-router.get("/posts", getPosts)
+router.get("/posts", getAllPosts)
 router.get("/posts/:id", getPostById)
+router.post("/posts", postPost)
 /*
-router.post("/posts", postPosts)
 router.put("/posts/:id", getPostById)
 router.delete("/posts/:id", getPostById)
 */
+router.get("/categoris", getAllCategoris);
+router.post("/categoris", postCategori);
+
+
 module.exports = router;
