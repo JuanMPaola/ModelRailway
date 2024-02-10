@@ -9,6 +9,7 @@ const { postPost } = require('../handlers/Posts/PostPost');
 
 const { getAllCategoris } = require('../handlers/Categoris/GetAllCategoris');
 const { postCategori } = require('../handlers/Categoris/PostCategori');
+const { deletePost } = require('../handlers/Posts/DeletePost');
 
 
 const router = Router();
@@ -16,13 +17,14 @@ const router = Router();
 
 // Here config the routers using the controllers
 // e.g : router.get("/posts/:id", getVdById);
-router.get("/posts", getAllPosts)
-router.get("/posts/:id", getPostById)
-router.post("/posts", postPost)
-/*
-router.put("/posts/:id", getPostById)
-router.delete("/posts/:id", getPostById)
-*/
+router.get("/posts", getAllPosts);
+router.get("/posts/:id", getPostById);
+router.post("/posts", postPost);
+
+//router.put("/posts/:id", getPostById)
+
+router.delete("/posts/:id", deletePost);
+
 router.get("/categoris", getAllCategoris);
 router.post("/categoris", postCategori);
 

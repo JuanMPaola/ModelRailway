@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: false,
     
+    },
+    postsActivos:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
     }
    },
     {timestamps: false}

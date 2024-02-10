@@ -4,11 +4,10 @@ const getPostById = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const response = await Post.findOne({
-            where: { id },
-            include:{model: Categori}})
+        const post = await Post.findByPk(id,{include:{model: Categori, attributes:["title"]}})
 
-        res.status(200).json(response)
+        if (post) return res.status(200).json(post)
+        else return res.status(404).send("Not found")
 
     } catch (error) {
         

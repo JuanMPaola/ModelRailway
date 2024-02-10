@@ -5,6 +5,6 @@ const port = 3001;
 
 
 app.listen(port, () =>{
-    sequelize.sync({force: true});
+    sequelize.sync({force: false});
     console.log(`Server listen on ${port}`);
 });

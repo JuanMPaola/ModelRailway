@@ -1,10 +1,10 @@
 const { Post } = require("../../db")
 
 const postPost = async (req,res)=>{
-    const {title, description, categori, image}=req.body
+    const {title, description, categori, images}=req.body
 
     try {
-        const newPost = await Post.create({title, description, image})
+        const newPost = await Post.create({title, description, images})
 
         const post = await newPost.setCategori(categori)
 
