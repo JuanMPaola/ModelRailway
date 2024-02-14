@@ -15,7 +15,8 @@ module.exports = (sequelize) => {
     },
     postsActivos:{
         type: DataTypes.INTEGER,
-        allowNull: false,
+        defaultValue: 0,
+        allowNull: false
     }
    },
     {timestamps: false}

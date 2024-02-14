@@ -14,13 +14,15 @@ module.exports = (sequelize) => {
     },
     images: {
         type: DataTypes.TEXT,
-        
+        allowNull: false,
     },
     description: {
         type: DataTypes.TEXT
+        
     },
     avible:{
-        
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
     }
 
    },

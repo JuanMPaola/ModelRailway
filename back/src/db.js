@@ -13,6 +13,7 @@ const sequelize = new Sequelize(
 
 
 // Injecting models
+
 CategoriModel(sequelize);
 PostModel(sequelize);
 
