@@ -18,8 +18,12 @@ function postForm() {
         <label>Titulo</label>
         <input></input>
         
+        <br></br>
+
         <label>Descripcion</label>
         <input></input>
+
+        <br></br>
 
         <label>Imagenes</label>
         <input></input>
