@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 function handleSumbit(event){
   event.preventDefault();
-  console.log("Sumbit");
+  console.log("Sumbited");
 }
 
 function Form() {
@@ -27,7 +27,7 @@ function Form() {
         <label>Nombre</label>
         <input></input>
 
-        <button onClick={handleSumbit}>Sumbit</button>
+        <button type='sumbit' onClick={handleSumbit}>Sumbit</button>
 
         <br></br>
         <p>Aca se va a renderizar una lista de las categorias que ya existen.</p>
