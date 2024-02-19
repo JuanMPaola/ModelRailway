@@ -1,6 +1,7 @@
 const { Sequelize } = require('sequelize');
 const CategoriModel = require('./models/Categori');
 const PostModel = require('./models/Post');
+const AmigosModel = require('./models/Amigos');
 
 require('dotenv').config()
 const { USER, PORT, DBNAME, PASS} = process.env;
@@ -16,10 +17,11 @@ const sequelize = new Sequelize(
 
 CategoriModel(sequelize);
 PostModel(sequelize);
+AmigosModel(sequelize);
 
 // Creating relations
 
-const { Post, Categori} = sequelize.models;
+const { Post, Categori, Amigos} = sequelize.models;
 
 
 Categori.hasMany(Post);
@@ -29,6 +31,7 @@ module.exports = {
     ...sequelize.models,
     sequelize,
     Categori,
-    Post
+    Post,
+    Amigos
 
 };
