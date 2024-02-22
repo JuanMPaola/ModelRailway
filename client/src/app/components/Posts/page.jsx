@@ -1,13 +1,13 @@
 import React from 'react'
 
-function Posts({posts}) {
+function Posts(/* {posts} */) {
   
   return (
     <>
         <h2>Publicaciones</h2>
 
         <ul>
-          {
+          {/* {
             posts.map(post => (
               <li key={post.id} event>
                 <div>
@@ -18,7 +18,7 @@ function Posts({posts}) {
                 </div>
               </li>
             ))
-          }
+          } */}
         </ul>
     </>
 

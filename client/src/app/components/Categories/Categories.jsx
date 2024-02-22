@@ -1,12 +1,12 @@
 import React from 'react'
 
-function Categoris({categoris}) {
+function Categories(/* {categories} */) {
     return (
         <div>
             <h2>Categorias</h2>
             <ul>
-                {
-                    categoris.map(categori => (
+{/*                 {
+                    categories.map(categori => (
                         <li key={categori.id}>
                             <div>
 
@@ -15,10 +15,10 @@ function Categoris({categoris}) {
                             </div>
                         </li>
                     ))
-                }
+                } */}
             </ul>
         </div>
     )
 }
 
-export default Categoris
+export default Categories

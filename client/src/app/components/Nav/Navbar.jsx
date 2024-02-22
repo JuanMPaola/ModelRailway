@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-function Navigation() {
+function Navbar() {
     return (
         <>
             <ul>
@@ -20,4 +20,4 @@ function Navigation() {
     )
 }
 
-export default Navigation
+export default Navbar

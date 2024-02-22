@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCategories } from '../redux/actions';
 import Link from 'next/link'
 import { db } from '@/src/firebase';
 import { query, collection, onSnapshot } from "firebase/firestore"; 
@@ -8,9 +10,16 @@ import { query, collection, onSnapshot } from "firebase/firestore";
 
 
 function Form() {
+/*   const dispatch = useDispatch();
+  const categoria = useSelector(state => state)
+  console.log("aca estan las categorias" + categoria.title)
+  useEffect(() =>{
+    dispatch(getCategories)
+  },[dispatch]) */
 
 
-useEffect(() =>{
+
+/* useEffect(() =>{
     const newQuery = query(collection(db, "Categorias"));
     
     const datos = onSnapshot(newQuery, (querySnapshot) =>{
@@ -20,7 +29,7 @@ useEffect(() =>{
     })
 
     return () => datos();
-}, [])
+}, []) */
 
 
 
