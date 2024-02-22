@@ -1,14 +1,37 @@
 "use client"
 
-import React from 'react'
+import { useEffect } from 'react';
 import Link from 'next/link'
+import { db } from '@/src/firebase';
+import { query, collection, onSnapshot } from "firebase/firestore"; 
+
+
+
+function Form() {
+
+
+useEffect(() =>{
+    const newQuery = query(collection(db, "Categorias"));
+    
+    const datos = onSnapshot(newQuery, (querySnapshot) =>{
+      querySnapshot.forEach(item => {
+        console.log(item.data())
+      })
+    })
+
+    return () => datos();
+}, [])
+
+
+
+
 
 function handleSumbit(event){
   event.preventDefault();
   console.log("Sumbited");
 }
 
-function Form() {
+
   return (
     <div>
       <h1>Form Categorias</h1>
