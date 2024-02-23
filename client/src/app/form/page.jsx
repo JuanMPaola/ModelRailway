@@ -1,45 +1,33 @@
 "use client"
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategories } from '../redux/actions';
+import { getCategories, postCategories } from '../redux/actions';
 import Link from 'next/link'
-import { db } from '@/src/firebase';
-import { query, collection, onSnapshot } from "firebase/firestore"; 
-
 
 
 function Form() {
-/*   const dispatch = useDispatch();
-  const categoria = useSelector(state => state)
-  console.log("aca estan las categorias" + categoria.title)
+  
+  const [categorias, setCategorias] = useState("");
+
+  const dispatch = useDispatch();
+  const categoriaState = useSelector(state => state.firebase.categories)
+
   useEffect(() =>{
-    dispatch(getCategories)
-  },[dispatch]) */
+    dispatch(getCategories())
+  },[dispatch])
+  
+  console.log("aca estan las categorias", categoriaState)
+  
+  const handleSumbit = (e) => {
+    e.preventDefault();
+    dispatch(postCategories(categorias))
+    setCategorias("")
+  }
 
-
-
-/* useEffect(() =>{
-    const newQuery = query(collection(db, "Categorias"));
-    
-    const datos = onSnapshot(newQuery, (querySnapshot) =>{
-      querySnapshot.forEach(item => {
-        console.log(item.data())
-      })
-    })
-
-    return () => datos();
-}, []) */
-
-
-
-
-
-function handleSumbit(event){
-  event.preventDefault();
-  console.log("Sumbited");
-}
-
+  const handleChange = (e) =>{
+    setCategorias(e.target.value)
+  }
 
   return (
     <div>
@@ -54,18 +42,26 @@ function handleSumbit(event){
       <br></br>
       <br></br>
 
-      <form>
+      <form onSubmit={handleSumbit}>
 
         <label>Nombre</label>
-        <input></input>
+        <input type="text" value={categorias} onChange={handleChange} />
 
-        <button type='sumbit' onClick={handleSumbit}>Sumbit</button>
+        <button type='sumbit'>Sumbit</button>
 
+        </form>
         <br></br>
         <p>Aca se va a renderizar una lista de las categorias que ya existen.</p>
+
+        <div>
+          {Array.isArray(categoriaState) && categoriaState.map((categoria, index) =>(
+            <div>
+              <h2 key={index}>{categoria.Title}</h2>
+            </div>
+          ))}
+        </div>
         <p>Se le podria agregar a cada categoria existente una cruz que permita eliminarla.</p>
 
-      </form>
 
 
 
