@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategories, postCategories } from '../redux/actions';
+import { getCategories, postCategories, deleteCategories } from '../redux/actions';
 import Link from 'next/link'
 
 
@@ -12,12 +12,10 @@ function Form() {
 
   const dispatch = useDispatch();
   const categoriaState = useSelector(state => state.firebase.categories)
-
+  console.log(categoriaState)
   useEffect(() =>{
     dispatch(getCategories())
   },[dispatch])
-  
-  console.log("aca estan las categorias", categoriaState)
   
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -27,6 +25,10 @@ function Form() {
 
   const handleChange = (e) =>{
     setCategorias(e.target.value)
+  }
+
+  const handleDelete = (id) =>{
+    dispatch(deleteCategories(id))
   }
 
   return (
@@ -57,15 +59,11 @@ function Form() {
           {Array.isArray(categoriaState) && categoriaState.map((categoria, index) =>(
             <div>
               <h2 key={index}>{categoria.Title}</h2>
+              <button onClick={() => handleDelete(categoria.id)}>Delete {categoria.Title}</button>
             </div>
           ))}
         </div>
         <p>Se le podria agregar a cada categoria existente una cruz que permita eliminarla.</p>
-
-
-
-
-
     </div>
   )
 }

@@ -1,39 +1,77 @@
-import { app, db } from "../../../firebase"
-import { getDocs, query, onSnapshot, collection, addDoc } from "firebase/firestore";
+import { db } from "../../../firebase"
+import { query, onSnapshot, collection, addDoc, deleteDoc, doc } from "firebase/firestore";
 
 export const GET_CATEGORIES = "GET_CATEGORIES";
 export const POST_CATEGORIES = "POST_CATEGORIES";
+export const DELETE_CATEGORIES = "DELETE_CATEGORIES";
 
 export const getCategories = () => async (dispatch) => {
     try {
         const response = query(collection(db, "Categorias"));
+
         onSnapshot(response, (querySnapshot) =>{
             const categoriesDb = [];
             querySnapshot.forEach((doc) =>{
                 categoriesDb.push(doc.data());
             })
-            console.log("el array ", categoriesDb)
+
             dispatch({
                 type: GET_CATEGORIES,
                 payload:categoriesDb,
             })
         })
-            
     } catch (error) {
         console.log("error al obtener las categorias", error)
     }
 }
 
-export const postCategories = (text) => async (dispatch) =>{
+/* export const postCategories = (text) => async (dispatch) =>{
     try {
         await addDoc(collection(db, "Categorias"), {
-            Title: text
+            Title: text,
         })
+
         dispatch({
             type:POST_CATEGORIES,
             payload:text
         })
     } catch (error) {
         alert("error al postear categoria", error)
+    }
+} */
+export const postCategories = (text) => async (dispatch) =>{
+    try {
+        const docRef = await addDoc(collection(db, "Categorias"), {
+            Title: text,
+        });
+
+
+        const categoryId = docRef.id;
+
+
+        dispatch({
+            type: POST_CATEGORIES,
+            payload: {
+                id: categoryId,
+                title: text
+            }
+        });
+    } catch (error) {
+        alert("error al postear categoria", error)
+    }
+}
+
+export const deleteCategories = (categoryId) => async (dispatch) =>{
+    try {
+        
+        await deleteDoc(doc(db, "Categorias", categoryId));
+        console.log("borrado")
+
+        dispatch({
+            type:DELETE_CATEGORIES,
+            payload: categoryId,
+        })
+    } catch (error) {
+        console.log("error al eliminar la categoria", error)
     }
 }

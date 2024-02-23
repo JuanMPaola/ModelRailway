@@ -1,6 +1,6 @@
 
 const initialState={
-    categories:{},
+    categories:[],
     loading: false,
 }
 
@@ -16,6 +16,11 @@ const reducer = (state= initialState, action) =>{
                 ...state,
                 categories: [...state.categories, action.payload]
             }
+        case "DELETE_CATEGORIES":
+            return {
+                ...state,
+                categories: state.categories.filter(cat => cat.id !== action.payload)
+            };
 
         default:
             return{
