@@ -12,7 +12,7 @@ export const getCategories = () => async (dispatch) => {
         onSnapshot(response, (querySnapshot) =>{
             const categoriesDb = [];
             querySnapshot.forEach((doc) =>{
-                categoriesDb.push(doc.data());
+                categoriesDb.push({id: doc.id, ...doc.data()});
             })
 
             dispatch({
@@ -41,18 +41,14 @@ export const getCategories = () => async (dispatch) => {
 } */
 export const postCategories = (text) => async (dispatch) =>{
     try {
-        const docRef = await addDoc(collection(db, "Categorias"), {
-            Title: text,
+        
+        await addDoc(collection(db, "Categorias"), {
+            Title: text
         });
-
-
-        const categoryId = docRef.id;
-
-
+        
         dispatch({
             type: POST_CATEGORIES,
             payload: {
-                id: categoryId,
                 title: text
             }
         });
