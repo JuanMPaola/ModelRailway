@@ -1,6 +1,7 @@
 
 const initialState={
     categories:[],
+    posteos:[],
     loading: false,
 }
 
@@ -21,6 +22,16 @@ const reducer = (state= initialState, action) =>{
                 ...state,
                 categories: state.categories.filter(cat => cat.id !== action.payload)
             };
+        case "POST_POSTS":
+            return {
+                ...state,
+                posteos:[...state.posteos, action.payload]
+            };
+        case "GET_POSTEOS":
+            return{
+                ...state,
+                posteos: action.payload
+            }
 
         default:
             return{

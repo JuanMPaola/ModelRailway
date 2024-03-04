@@ -1,0 +1,6 @@
+export const GET_CATEGORIES = "GET_CATEGORIES";
+export const POST_CATEGORIES = "POST_CATEGORIES";
+export const DELETE_CATEGORIES = "DELETE_CATEGORIES";
+
+export const POST_POSTS = "POST_POSTS";
+export const GET_POSTEOS = "GET_POSTEOS";

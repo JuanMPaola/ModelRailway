@@ -1,9 +1,36 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
-
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { postPosts } from '../../redux/actions'
 
 
 function postForm() {
+  const postPosteos = useSelector(state => state.firebase.posteos)
+  const [postState, setPostState] = useState({
+    available: true,
+    categories:"",
+    description:"",
+    image:"",
+    title:"",
+  })
+  const dispatch = useDispatch();
+
+  const handleChange = (e) =>{
+    const { name, value } = e.target;
+    setPostState(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  }
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    dispatch(postPosts(postState))
+  }
+
+
   return (
     <div>
       <h1>Form Posts</h1>
@@ -16,22 +43,25 @@ function postForm() {
       <br></br>
       <br></br>
 
-      <form>
-        <label>Titulo</label>
-        <input></input>
-        
-        <br></br>
-
-        <label>Descripcion</label>
-        <input></input>
-
-        <br></br>
-
-        <label>Imagenes</label>
-        <input></input>
-
-        <button>sumbit</button>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="">Titulo</label>
+        <input type="text" name='title' value={postState.title} onChange={handleChange}/>
+        <br /><br />
+        <label htmlFor="">Descripcion</label>
+        <input type="text" name='description' value={postState.description} onChange={handleChange}/>
+        <br /><br />
+        <label htmlFor="">Categoria</label>
+        <input type="text" name='categories' value={postState.categories} onChange={handleChange}/>
+        <br /><br />
+        <label htmlFor="">Imagenes</label>
+        <input type="text" name='image' value={postState.image} onChange={handleChange}/>
+        <br /><br />
+        <button type='submit'>Submit</button>
       </form>
+
+      <div>
+        
+      </div>
 
     </div>
   )
