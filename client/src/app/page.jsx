@@ -1,9 +1,11 @@
 import React from 'react'
 import Categories from './components/Categories/Categories'
 import Posts from './components/Posts/page';
+import getPosteos from './redux/actions/Posts/getPosteos';
 
 
 const  page = () => {
+
 
   return (
     <>

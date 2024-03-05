@@ -12,7 +12,7 @@ const getPosteos = () => async (dispatch) => {
             console.log("LOG :: -->>>>>>", doc.data());
                 posteosDb.push({id: doc.id, ...doc.data()});
             })
-            console.log("LOG  :: categoriesDb ", posteosDb);
+            console.log("LOG  :: posteosDb ", posteosDb);
             dispatch({
                 type: GET_POSTEOS,
                 payload:posteosDb,

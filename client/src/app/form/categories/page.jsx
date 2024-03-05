@@ -1,5 +1,4 @@
 "use client"
-
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories, postCategories, deleteCategories } from '../../redux/actions';
@@ -36,7 +35,7 @@ function FormCategories() {
 
         <div>
           {listCategories.map((categoria) => (
-           categoria.id && <div style={{background: "red"}} key={categoria.id}>
+            categoria.id && <div key={categoria.id}>
               <h2 >{categoria.title}</h2>
               <button onClick={() => handleDelete(categoria.id)}>Delete{categoria.id}</button>
               <h2 >{categoria.id}</h2>
