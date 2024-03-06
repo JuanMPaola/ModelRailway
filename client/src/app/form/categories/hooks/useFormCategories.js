@@ -6,20 +6,19 @@ import { getCategories, postCategories, deleteCategories } from '../../../redux/
 const useFormCategories = () => {
     const [categorias, setCategorias] = useState("");
     const [listCategories, setListCategories] = useState([])
-
+/*     console.log("no soy un useEffect") */
     const dispatch = useDispatch();
     const categoriaState = useSelector(state => state.firebase.categories)
   
     useEffect(() =>{
         dispatch(getCategories())
     },[])
-    useEffect(() =>{
-        const hasSemeData = categoriaState.length === listCategories.length
-        if(!hasSemeData){
-            return setListCategories(categoriaState)
-        }
-        setListCategories(categoriaState)
-    },[categoriaState])
+/*     useEffect(() =>{
+      const hasSemeData = categoriaState.length === listCategories.length;
+      if(!hasSemeData){
+          setListCategories(categoriaState);
+      }
+  },[categoriaState, listCategories]); */
 
     const handleSumbit = (e) => {
       e.preventDefault();

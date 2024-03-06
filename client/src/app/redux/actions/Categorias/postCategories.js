@@ -4,7 +4,7 @@ import { collection, addDoc } from "firebase/firestore";
 
 const postCategories = (text) => async (dispatch) =>{
     try {
-        console.log("LOG :: INGRESA AL POST");
+/*         console.log("LOG :: INGRESA AL POST"); */
         await addDoc(collection(db, "Categorias"), {
             title: text
         });

@@ -4,9 +4,11 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { postPosts } from '../../redux/actions'
-
+import useFormCategories from '../categories/hooks/useFormCategories'
 
 function postForm() {
+  const {categoriaState} = useFormCategories()
+  console.log("categorias desde post", categoriaState)
   const postPosteos = useSelector(state => state.firebase.posteos)
   const [postState, setPostState] = useState({
     available: true,
@@ -31,6 +33,8 @@ function postForm() {
   }
 
 
+
+
   return (
     <div>
       <h1>Form Posts</h1>
@@ -50,8 +54,12 @@ function postForm() {
         <label htmlFor="">Descripcion</label>
         <input type="text" name='description' value={postState.description} onChange={handleChange}/>
         <br /><br />
-        <label htmlFor="">Categoria</label>
-        <input type="text" name='categories' value={postState.categories} onChange={handleChange}/>
+          <label htmlFor="">Categoria</label>
+        <select name="categories" value={postState.categories} onChange={handleChange}>
+        {categoriaState.map((categoria) =>(
+            <option key={categoria.id} value={categoria.title}>{categoria.title}</option>
+            ))}
+            </select>
         <br /><br />
         <label htmlFor="">Imagenes</label>
         <input type="text" name='image' value={postState.image} onChange={handleChange}/>

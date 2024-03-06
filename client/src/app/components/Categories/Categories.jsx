@@ -10,14 +10,14 @@ function Categories(/* {categories} */) {
 
     useEffect(() =>{
         dispatch(getCategories())
-    })
+    }, [])
     return (
         <div>
             <h2>Categorias</h2>
             <ul>
             {categoriaState.map((categoria) => (
             categoria.id && <div key={categoria.id}>
-                <h2 >{categoria.title}</h2>
+                <h2>{categoria.title}</h2>
                 <p >{categoria.id}</p>
                 </div>
             ))}
