@@ -1,7 +1,36 @@
-import React from 'react'
+"use client"
+import {React, useState } from 'react'
 import Link from 'next/link'
+import { useSelector, useDispatch } from 'react-redux'
+import { postAmigos } from '../../redux/actions'
 
 function formAmigos() {
+    /*     const getPostAmigos = useSelector(state => state.firebase.amigos)
+    console.log("amigos", postAmigos) */
+    const [amigosState, setAmigosState] = useState({
+        image: "",
+        description: "",
+    });
+    
+    
+    const dispatch = useDispatch();
+    
+    
+    const handleChange = (e) =>{
+        const { name, value } = e.target;
+        setAmigosState(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+    
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        dispatch(postAmigos(amigosState))
+        setAmigosState({image: "", description:""})
+    }
+    
+
     return (
         <div>
             <h1>Form Amigos</h1>
@@ -15,14 +44,16 @@ function formAmigos() {
             <br></br>
             <br></br>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Imagenes</label>
-                <input></input>
+                <input type="text" name='image' value={amigosState.image} onChange={handleChange}></input>
 
                 <br></br>
 
-                <label>Texto</label>
-                <input></input>
+                <label>Descripcion</label>
+                <input type="text" name='description' value={amigosState.description} onChange={handleChange}></input>
+            
+                <button type='submit'>Submit</button>
             </form>
         </div>
     )

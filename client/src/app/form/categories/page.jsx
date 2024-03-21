@@ -1,7 +1,4 @@
 "use client"
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCategories, postCategories, deleteCategories } from '../../redux/actions';
 import useFormCategories from './hooks/useFormCategories';
 import Link from 'next/link'
 
@@ -20,7 +17,6 @@ function FormCategories() {
       <Link href="/form/amigos">Amigos</Link>
 
       <br></br>
-      <br></br>
     
       <form onSubmit={handleSumbit}>
 
@@ -36,9 +32,8 @@ function FormCategories() {
         <div>
           {listCategories.map((categoria) => (
             categoria.id && <div key={categoria.id}>
-              <h2 >{categoria.title}</h2>
               <button onClick={() => handleDelete(categoria.id)}>Delete{categoria.id}</button>
-              <h2 >{categoria.id}</h2>
+              <h2 >{categoria.title}</h2>
             </div>
           ))}
         </div>

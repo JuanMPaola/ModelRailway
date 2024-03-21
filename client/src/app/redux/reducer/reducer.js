@@ -1,19 +1,21 @@
 
-const initialState={
-    categories:[],
-    posteos:[],
+const initialState = {
+    categories: [],
+    posteos: [],
+    allPosteos: [],
+    amigos: [],
     loading: false,
 }
 
-const reducer = (state= initialState, action) =>{
-    switch(action.type){
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
         case "GET_CATEGORIES":
-            return{
+            return {
                 ...state,
                 categories: action.payload
             }
         case "POST_CATEGORIES":
-            return{
+            return {
                 ...state,
                 categories: [...state.categories, action.payload]
             }
@@ -22,19 +24,50 @@ const reducer = (state= initialState, action) =>{
                 ...state,
                 categories: state.categories.filter(cat => cat.id !== action.payload)
             };
+        case "GET_POSTEOS":
+            return {
+                ...state,
+                posteos: action.payload,
+                allPosteos: action.payload
+            }
         case "POST_POSTS":
             return {
                 ...state,
-                posteos:[...state.posteos, action.payload]
+                posteos: [...state.posteos, action.payload],
+                allPosteos: [...state.allPosteos, action.payload],
             };
-        case "GET_POSTEOS":
-            return{
+        case "DELETE_POSTEOS":
+            return {
                 ...state,
-                posteos: action.payload
+                posteos: state.posteos.filter(post => post.id !== action.payload),
+                allPosteos: state.allPosteos.filter(post => post.id !== action.payload)
+            };
+        case "GET_AMIGOS":
+            return {
+                ...state,
+                amigos: action.payload
+            }
+        case "POST_AMIGOS":
+            return {
+                ...state,
+                amigos: [...state.amigos, action.payload]
+            }
+        case "FILTER_CATEGORIES":
+            if (action.payload === "Todas") {
+                return {
+                    ...state,
+                    posteos: state.allPosteos
+                };
+            } else {
+                return {
+                    ...state,
+                    posteos: state.allPosteos.filter(post => post.categories === action.payload)
+                };
             }
 
+
         default:
-            return{
+            return {
                 ...state
             }
     }

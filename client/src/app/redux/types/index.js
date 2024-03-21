@@ -4,3 +4,11 @@ export const DELETE_CATEGORIES = "DELETE_CATEGORIES";
 
 export const POST_POSTS = "POST_POSTS";
 export const GET_POSTEOS = "GET_POSTEOS";
+export const DELETE_POSTEOS = "DELETE_POSTEOS";
+
+export const GET_AMIGOS = "GET_AMIGOS";
+export const POST_AMIGOS = "POST_AMIGOS";
+
+
+export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
+

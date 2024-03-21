@@ -13,12 +13,12 @@ const useFormCategories = () => {
     useEffect(() =>{
         dispatch(getCategories())
     },[])
-/*     useEffect(() =>{
+    useEffect(() =>{
       const hasSemeData = categoriaState.length === listCategories.length;
       if(!hasSemeData){
           setListCategories(categoriaState);
       }
-  },[categoriaState, listCategories]); */
+  },[categoriaState, listCategories]);
 
     const handleSumbit = (e) => {
       e.preventDefault();
