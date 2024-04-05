@@ -1,6 +1,6 @@
 import { db } from "@/src/firebase"
 import { query, collection, onSnapshot } from "firebase/firestore"
-import { GET_AMIGOS, POST_AMIGOS } from "../../types";
+import { GET_AMIGOS } from "../../types";
 
 const getAmigos = () => async (dispatch) =>{
     try {

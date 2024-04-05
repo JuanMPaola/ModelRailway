@@ -8,7 +8,7 @@ export const DELETE_POSTEOS = "DELETE_POSTEOS";
 
 export const GET_AMIGOS = "GET_AMIGOS";
 export const POST_AMIGOS = "POST_AMIGOS";
-
+export const DELETE_AMIGOS = "DELETE_AMIGOS";
 
 export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
 

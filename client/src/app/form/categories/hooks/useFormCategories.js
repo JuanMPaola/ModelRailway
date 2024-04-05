@@ -6,7 +6,6 @@ import { getCategories, postCategories, deleteCategories } from '../../../redux/
 const useFormCategories = () => {
     const [categorias, setCategorias] = useState("");
     const [listCategories, setListCategories] = useState([])
-/*     console.log("no soy un useEffect") */
     const dispatch = useDispatch();
     const categoriaState = useSelector(state => state.firebase.categories)
   

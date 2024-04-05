@@ -3,10 +3,8 @@ import React from 'react'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { postPosts } from '../../redux/actions'
+import { postPosts, getPosteos, deletePosteos } from '../../redux/actions'
 import useFormCategories from '../categories/hooks/useFormCategories'
-import getPosteos from '../../redux/actions/Posts/getPosteos'
-import deletePosteos from '../../redux/actions/Posts/deletePosteos'
 
 
 function postForm() {
