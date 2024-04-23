@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+
+.container>div {
+    width: 40%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container>div:first-child {
+    margin-right: 20px;
+    /* Add margin to create space between categories and posts */
+}
+
+.categories {
+    max-width: 400px; /* Establecer un ancho máximo al 12.5% del ancho de su contenedor */
+  }

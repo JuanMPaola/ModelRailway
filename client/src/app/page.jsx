@@ -1,23 +1,20 @@
 import React from 'react'
 import Categories from './components/Categories/Categories'
 import Posts from './components/Posts/page';
-import getPosteos from './redux/actions/Posts/getPosteos';
-
+import style from "./page.module.css"
 
 const  page = () => {
 
-
-  return (
-    <>
-      <h1>Posts</h1>
-      <div>
+ return (
+    <div className={style.container}>
+      <div className={style.categories}>
         <Categories/>
       </div>
 
-      <div>
+      <div className={style.posts}>
         <Posts/>
       </div>
-    </>
+    </div>
   )
 }
 
