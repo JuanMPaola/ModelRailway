@@ -13,7 +13,7 @@ function Amigos() {
   }, [dispatch])
   return (
     <div>
-        <h2>Amigos</h2>
+        {/* <h2>Amigos</h2>
         <ul>
         {getPostAmigos.map(amigo => (
             <li>
@@ -22,7 +22,7 @@ function Amigos() {
             </li>
           ))}
         </ul>
-        <li></li>
+        <li></li> */}
     </div>
   )
 }
