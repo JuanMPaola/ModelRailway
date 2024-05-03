@@ -19,8 +19,8 @@ function Posts() {
       <div className={style.containerCard}>
         <ul>
           {posteos.map(posteo => (
-            <li className={style.card}>
-              <img src={posteo.imagenes[0]} alt="" className={style.cardImage}/>
+            <li className={style.card} key={posteo.id}>
+              <img src={posteo.imagenes[0]} alt="" className={style.cardImage} />
               <p className={style.cardTitle}>{posteo.id}</p>
               <p className={style.cardDes}>{posteo.descripcion}</p>
               <p>{posteo.disponible}</p>
