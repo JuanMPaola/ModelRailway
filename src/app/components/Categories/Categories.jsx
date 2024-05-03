@@ -30,7 +30,6 @@ function Categories() {
         dispatch(getCategories())
         dispatch(getMarcas())
     }, [dispatch])
-    
     return (
         <div className={style.container}>
             <div>
