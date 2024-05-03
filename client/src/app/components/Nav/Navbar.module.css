@@ -1,7 +1,10 @@
 .container{
-    /* background: #5CE1E6; */
-    background-image: ("../../assets/TrenesDeAdrian.png");
-    padding: 10px;
+    background-image: url("../../../../public/assets/Banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 160px;
+/*     padding: 10px;
+    background: #51EAEA; */
 
 }
 

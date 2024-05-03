@@ -1,4 +1,4 @@
-import { db } from "@/src/firebase";
+/* import { db } from "@/src/firebase";
 
 import { POST_AMIGOS } from "../../types"
 import { addDoc, collection } from "firebase/firestore";
@@ -20,4 +20,4 @@ const postAmigos = (post) => async (dispatch) =>{
     }
 }
 
-export default postAmigos;
+export default postAmigos; */

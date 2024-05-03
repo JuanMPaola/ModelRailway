@@ -1,57 +1,35 @@
 "use client"
 
-import { React, useEffect, useState } from 'react'
+import { React, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import getPosteos from '../../redux/actions/Posts/getPosteos'
-import filterCategories from "../../redux/actions/Filter/filterCategories"
+import style from "./page.module.css"
 
 function Posts() {
   const dispatch = useDispatch();
 
   const posteos = useSelector(state => state.firebase.posteos)
-  const categories = useSelector(state => state.firebase.categories);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  /*   console.log("posteitos", posteos)
-    console.log("categoritas", categories) */
-
 
   useEffect(() => {
     dispatch(getPosteos())
   }, [dispatch])
 
-  const handleFilter = (category) => {
-    setSelectedCategory(category)
-    dispatch(filterCategories(category));
-  }
-
   return (
-    <>
-      <h2>Publicaciones</h2>
-      <div>
-        <h3>Filtrar por Categoria:</h3>
-        <select value={selectedCategory} onChange={(e) => handleFilter(e.target.value)}>
-          <option value="Todas">Todas</option>
-          {categories.map(category => (
-            <option key={category.id} value={category.title}>{category.title}</option>
-          ))}
-        </select>
-      </div>
-
-      <div>
+    <div className={style.container}>
+      <div className={style.containerCard}>
         <ul>
           {posteos.map(posteo => (
-              <li>
-                <p>Available: {posteo.available}</p>
-                <p>Categorias: {posteo.categories}</p>
-                <p>Descripcion: {posteo.description}</p>
-                <p>id: {posteo.id}</p>
-                <p>Imagen: {posteo.image}</p>
-                <p>Titulo: {posteo.title}</p>
-              </li>
+            <li className={style.card}>
+              <img src={posteo.imagenes[0]} alt="" className={style.cardImage}/>
+              <p className={style.cardTitle}>{posteo.id}</p>
+              <p className={style.cardDes}>{posteo.descripcion}</p>
+              <p>{posteo.disponible}</p>
+              <p>{posteo.categoria}</p>
+            </li>
           ))}
         </ul>
       </div>
-    </>
+    </div>
 
   )
 }

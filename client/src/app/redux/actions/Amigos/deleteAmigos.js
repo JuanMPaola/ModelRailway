@@ -1,4 +1,4 @@
-import { DELETE_AMIGOS } from "../../types";
+/* import { DELETE_AMIGOS } from "../../types";
 import { db } from "../../../../firebase"
 import { deleteDoc, doc } from "firebase/firestore";
 
@@ -17,4 +17,4 @@ const deleteAmigos = (amigoId) => async (dispatch) =>{
     }
 }
 
-export default deleteAmigos;
+export default deleteAmigos; */

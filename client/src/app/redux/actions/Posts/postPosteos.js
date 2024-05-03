@@ -1,4 +1,4 @@
-import { db } from "../../../../firebase"
+/* import { db } from "../../../../firebase"
 
 import { collection, addDoc } from "firebase/firestore";
 import { POST_POSTS } from "../../types";
@@ -9,8 +9,9 @@ const postPosts = (post) => async (dispatch) =>{
             available: post.available,
             categories: post.categories,
             description: post.description,
+            marca: post.marca,
             image: post.image,
-            title: post.title,
+            title: post.title
         })
 
         dispatch({
@@ -22,4 +23,4 @@ const postPosts = (post) => async (dispatch) =>{
     }
 }
 
-export default postPosts;
+export default postPosts; */

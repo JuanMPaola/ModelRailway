@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import style from "./Navbar.module.css"
+import lineasNav from "../../../../public/assets/lineasNav.png"
 
 function Navbar() {
     return (
@@ -18,7 +19,6 @@ function Navbar() {
                     </li>
                 </ul>
             </nav>
-            <Link href="/form">Form</Link>
         </>
 
     )

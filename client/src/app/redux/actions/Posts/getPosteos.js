@@ -9,10 +9,10 @@ const getPosteos = () => async (dispatch) => {
             const posteosDb = [];
             querySnapshot.forEach((doc) =>{
                 
-            console.log("LOG :: -->>>>>>", doc.data());
+/*             console.log("LOG :: -->>>>>>", doc.data()); */
                 posteosDb.push({id: doc.id, ...doc.data()});
             })
-            console.log("LOG  :: posteosDb ", posteosDb);
+/*             console.log("LOG  :: posteosDb ", posteosDb); */
             dispatch({
                 type: GET_POSTEOS,
                 payload:posteosDb,

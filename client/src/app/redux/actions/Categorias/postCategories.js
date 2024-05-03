@@ -1,10 +1,10 @@
-import { db } from "../../../../firebase"
+/* import { db } from "../../../../firebase"
 import { POST_CATEGORIES } from "../../types";
 import { collection, addDoc } from "firebase/firestore";
 
 const postCategories = (text) => async (dispatch) =>{
     try {
-/*         console.log("LOG :: INGRESA AL POST"); */
+
         await addDoc(collection(db, "Categorias"), {
             title: text
         });
@@ -20,4 +20,4 @@ const postCategories = (text) => async (dispatch) =>{
     }
 }
 
-export default postCategories;
+export default postCategories; */

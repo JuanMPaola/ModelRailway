@@ -4,6 +4,7 @@ const initialState = {
     posteos: [],
     allPosteos: [],
     amigos: [],
+    marcas: [],
     loading: false,
 }
 
@@ -14,43 +15,16 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 categories: action.payload
             }
-        case "POST_CATEGORIES":
-            return {
-                ...state,
-                categories: [...state.categories, action.payload]
-            }
-        case "DELETE_CATEGORIES":
-            return {
-                ...state,
-                categories: state.categories.filter(cat => cat.id !== action.payload)
-            };
         case "GET_POSTEOS":
             return {
                 ...state,
                 posteos: action.payload,
                 allPosteos: action.payload
             }
-        case "POST_POSTS":
-            return {
-                ...state,
-                posteos: [...state.posteos, action.payload],
-                allPosteos: [...state.allPosteos, action.payload],
-            };
-        case "DELETE_POSTEOS":
-            return {
-                ...state,
-                posteos: state.posteos.filter(post => post.id !== action.payload),
-                allPosteos: state.allPosteos.filter(post => post.id !== action.payload)
-            };
         case "GET_AMIGOS":
             return {
                 ...state,
                 amigos: action.payload
-            }
-        case "POST_AMIGOS":
-            return {
-                ...state,
-                amigos: [...state.amigos, action.payload]
             }
         case "FILTER_CATEGORIES":
             if (action.payload === "Todas") {
@@ -61,11 +35,26 @@ const reducer = (state = initialState, action) => {
             } else {
                 return {
                     ...state,
-                    posteos: state.allPosteos.filter(post => post.categories === action.payload)
+                    posteos: state.allPosteos.filter(post => post.categoria === action.payload)
                 };
             }
-
-
+        case "GET_MARCAS":
+            return {
+                ...state,
+                marcas: action.payload
+            }
+            case "FILTER_MARCAS":
+                if (action.payload === "All") {
+                    return {
+                        ...state,
+                        posteos: state.allPosteos
+                    }
+                } else {
+                    return {
+                        ...state,
+                        posteos: state.allPosteos.filter(post => post.marca === action.payload)
+                    };
+                }
         default:
             return {
                 ...state

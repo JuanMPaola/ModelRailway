@@ -1,4 +1,4 @@
-import { DELETE_POSTEOS } from "../../types";
+/* import { DELETE_POSTEOS } from "../../types";
 import { db } from "../../../../firebase"
 import { deleteDoc, doc } from "firebase/firestore";
 
@@ -19,4 +19,4 @@ const deletePosteos = (posteoId) => async (dispatch) =>{
     }
 }
 
-export default deletePosteos;
+export default deletePosteos; */
