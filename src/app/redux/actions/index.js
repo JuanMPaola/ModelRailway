@@ -4,5 +4,6 @@ import getAmigos from "./Amigos/getAmigos";
 import filterCategories from "./Filters/filterCategories";
 import filterMarcas from "./Filters/filterMarcas";
 import getMarcas from "./Marcas/getMarcas";
+import isLoading from "./Loading/loading"
 
-export { getCategories, getPosteos, getAmigos, filterCategories, getMarcas, filterMarcas }
+export { getCategories, getPosteos, getAmigos, filterCategories, getMarcas, filterMarcas, isLoading }

@@ -73,3 +73,22 @@
     font-size: 13px;
     color: #1797b8;
 }
+
+.loading{
+    background: black;
+}
+
+.spinner {
+    margin: 300px;
+    width: 17.6px;
+    height: 17.6px;
+    border-radius: 17.6px;
+    box-shadow: 44px 0px 0 0 rgba(81,234,234,0.2), 35.6px 26px 0 0 rgba(81,234,234,0.4), 13.64px 41.8px 0 0 rgba(81,234,234,0.6), -13.64px 41.8px 0 0 rgba(81,234,234,0.8), -35.6px 26px 0 0 #51eaea;
+    animation: spinner-b87k6z 1.2s infinite linear;
+}
+
+@keyframes spinner-b87k6z {
+    to {
+    transform: rotate(360deg);
+    }
+}

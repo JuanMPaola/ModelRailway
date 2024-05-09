@@ -34,6 +34,7 @@ function Categories() {
         <div className={style.container}>
             <div>
                 <h2>Marcas</h2>
+                
                 <ul>
                     {marcas.map((marca) => (
                         <div key={marca.id} onClick={() => handleFilterMarcas(marca.id)} value={selectedMarcas}>

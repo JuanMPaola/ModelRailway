@@ -4,4 +4,6 @@ export const GET_AMIGOS = "GET_AMIGOS";
 export const GET_MARCAS = "GET_MARCAS";
 
 export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
-export const FILTER_MARCAS = "FILTER_MARCAS"
+export const FILTER_MARCAS = "FILTER_MARCAS";
+
+export const LOADING = "LOADING";

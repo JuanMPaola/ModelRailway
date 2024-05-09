@@ -1,8 +1,14 @@
+@font-face{
+    font-family: Custom;
+    src: url(../../../fonts/Trenesdeadrian.ttf)
+}
+
 .container{
-    background-image: url("../../../../public/assets/Banner2.png");
+    background-image: url("../../../../public/assets/Bannerlargo.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 160px;
+    padding: 20px 0px 20px 0px;
+    /* height: 160px; */
 /*     padding: 10px;
     background: #51EAEA; */
 /*     display: flex;
@@ -11,19 +17,24 @@
     padding: 10px; */
 }
 
+.containerTitulo{
+    display: flex;
+    justify-content: center;
+}
 
 .container h1{
     text-align: center;
     padding: 15px;
     font-size: 70px;
+    font-family: Custom;
     color: #ffffff;
-    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.6);
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+    letter-spacing: 6px;
 }
 
 
 .container ul{
     display: flex;
-    
     justify-content: center;
     text-decoration: none;
     gap: 50px;
@@ -38,4 +49,27 @@
     text-decoration: none;
     color: #ffffff;
     text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.6);
+}
+
+
+@media (max-width: 1350px) {
+    .container h1{
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container h1{
+        font-size: 30px;
+        width: 50%;
+    }
+}
+
+@media (max-width: 550px) {
+    .container h1{
+        font-size: 25px;
+    }
+    .container ul{
+        gap: 20px;
+    }
 }

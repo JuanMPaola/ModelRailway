@@ -5,7 +5,7 @@ const initialState = {
     allPosteos: [],
     amigos: [],
     marcas: [],
-    loading: false,
+    loading: true,
 }
 
 const reducer = (state = initialState, action) => {
@@ -13,13 +13,14 @@ const reducer = (state = initialState, action) => {
         case "GET_CATEGORIES":
             return {
                 ...state,
-                categories: action.payload
+                categories: action.payload,
             }
         case "GET_POSTEOS":
             return {
                 ...state,
                 posteos: action.payload,
-                allPosteos: action.payload
+                allPosteos: action.payload,
+                loading: false,
             }
         case "GET_AMIGOS":
             return {
@@ -43,18 +44,23 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 marcas: action.payload
             }
-            case "FILTER_MARCAS":
-                if (action.payload === "All") {
-                    return {
-                        ...state,
-                        posteos: state.allPosteos
-                    }
-                } else {
-                    return {
-                        ...state,
-                        posteos: state.allPosteos.filter(post => post.marca === action.payload)
-                    };
+        case "FILTER_MARCAS":
+            if (action.payload === "All") {
+                return {
+                    ...state,
+                    posteos: state.allPosteos
                 }
+            } else {
+                return {
+                    ...state,
+                    posteos: state.allPosteos.filter(post => post.marca === action.payload)
+                };
+            }
+        case "LOADING":
+            return{
+                ...state,
+                loading: true
+            }
         default:
             return {
                 ...state

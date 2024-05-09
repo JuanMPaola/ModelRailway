@@ -13,7 +13,9 @@ function Navbar() {
                 </div> */}
 
                 <div className={style.titulo}>
-                    <h1>Trenes de Adrian</h1>
+                    <div className={style.containerTitulo}>
+                        <h1>TRENES DE ADRIAN</h1>
+                    </div>
                     <ul>
                         <li>
                             <Link href="/">Home</Link>
