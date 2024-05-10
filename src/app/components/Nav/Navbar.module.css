@@ -4,10 +4,14 @@
 }
 
 .container{
-    background-image: url("../../../../public/assets/Bannerlargo.png");
+/*     background-image: url("../../../../public/assets/Bannerlargo.png");
     background-repeat: no-repeat;
-    background-size: cover;
-    padding: 20px 0px 20px 0px;
+    background-size: cover; */
+    background-color: #51EAEA;
+/*     padding: 20px 0px 20px 0px; */
+    background-color: #51EAEA;
+    display: flex;
+    justify-content: space-around;
     /* height: 160px; */
 /*     padding: 10px;
     background: #51EAEA; */
@@ -15,6 +19,36 @@
     justify-content: space-between;
     background: aqua;
     padding: 10px; */
+}
+
+/* .none p{
+    display: none;
+} */
+
+.none{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.none img{
+/*     width: 35%; */
+    width: 146px;
+}
+
+.imageNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageNav img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+/*     border-radius: 100px; */
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
 }
 
 .containerTitulo{
@@ -42,7 +76,6 @@
 
 .container ul li{
     list-style: none;
-    
 }
 
 .container ul li a{
@@ -61,7 +94,7 @@
 @media (max-width: 1000px) {
     .container h1{
         font-size: 30px;
-        width: 50%;
+        width: 60%;
     }
 }
 

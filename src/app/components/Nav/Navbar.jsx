@@ -1,16 +1,19 @@
+"use client"
 import Link from 'next/link'
 import style from "./Navbar.module.css"
-/* import lineasNav from "../../../../public/assets/lineasNav.png"
+/* import lineas from "../../../../public/Lineas.svg"
+ *//* import lineasNav from "../../../../public/assets/lineasNav.png"
 import Linea from "../../../../public/Lineas.svg" */
+/* import logo from '../../../../public/assets/logo.jpg'; */
 
 
 function Navbar() {
     return (
         <>
             <nav className={style.container}>
-                {/* <div className={style.logo}>
-                    <p>🚆</p>
-                </div> */}
+                <div className={style.imageNav}>
+                    <img src="/assets/logo2.jpg" alt="Logo" />
+                </div>
 
                 <div className={style.titulo}>
                     <div className={style.containerTitulo}>
@@ -27,7 +30,11 @@ function Navbar() {
                             <Link href="/amigos">Amigos</Link>
                         </li>
                     </ul>
-
+                </div>
+                <div className={style.none}>
+                    {/* <p>none</p> */}
+                    <img src="/assets/lineasNav.png" alt="" />
+                    
                 </div>
             </nav>
         </>

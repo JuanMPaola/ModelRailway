@@ -12,13 +12,17 @@
     padding-bottom: 5px;
 }
 
-.containerContacto{
+.containerContacto,
+.containerRedes,
+.containerLinks{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.containerContacto ul{
+.containerContacto ul,
+.containerRedes ul,
+.containerLinks ul{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -37,6 +41,13 @@
 
 .ulRedes{
     align-items: center;
+}
+
+
+@media (max-width: 530px) {
+    .containerLinks{
+        display: none;
+    }
 }
 
 

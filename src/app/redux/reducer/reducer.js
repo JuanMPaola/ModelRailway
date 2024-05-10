@@ -14,6 +14,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 categories: action.payload,
+                loading: false,
             }
         case "GET_POSTEOS":
             return {
@@ -31,7 +32,8 @@ const reducer = (state = initialState, action) => {
             if (action.payload === "Todas") {
                 return {
                     ...state,
-                    posteos: state.allPosteos
+                    posteos: state.allPosteos,
+                    loading: false,
                 };
             } else {
                 return {
@@ -42,13 +44,15 @@ const reducer = (state = initialState, action) => {
         case "GET_MARCAS":
             return {
                 ...state,
-                marcas: action.payload
+                marcas: action.payload,
+                loading: false,
             }
         case "FILTER_MARCAS":
             if (action.payload === "All") {
                 return {
                     ...state,
-                    posteos: state.allPosteos
+                    posteos: state.allPosteos,
+                    loading: false,
                 }
             } else {
                 return {
