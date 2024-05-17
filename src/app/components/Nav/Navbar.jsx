@@ -1,10 +1,7 @@
 "use client"
 import Link from 'next/link'
 import style from "./Navbar.module.css"
-/* import lineas from "../../../../public/Lineas.svg"
- *//* import lineasNav from "../../../../public/assets/lineasNav.png"
-import Linea from "../../../../public/Lineas.svg" */
-/* import logo from '../../../../public/assets/logo.jpg'; */
+
 
 
 function Navbar() {

@@ -6,6 +6,7 @@ const initialState = {
     amigos: [],
     marcas: [],
     loading: true,
+    postId: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -28,6 +29,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 amigos: action.payload
             }
+        case "GET_MARCAS":
+            return {
+                ...state,
+                marcas: action.payload,
+                loading: false,
+            }
         case "FILTER_CATEGORIES":
             if (action.payload === "Todas") {
                 return {
@@ -41,14 +48,8 @@ const reducer = (state = initialState, action) => {
                     posteos: state.allPosteos.filter(post => post.categoria === action.payload)
                 };
             }
-        case "GET_MARCAS":
-            return {
-                ...state,
-                marcas: action.payload,
-                loading: false,
-            }
         case "FILTER_MARCAS":
-            if (action.payload === "All") {
+            if (action.payload === "Todas") {
                 return {
                     ...state,
                     posteos: state.allPosteos,
@@ -61,10 +62,17 @@ const reducer = (state = initialState, action) => {
                 };
             }
         case "LOADING":
-            return{
+            return {
                 ...state,
                 loading: true
             }
+        case "GET_BYID":
+            return {
+                ...state,
+                postId: action.payload,
+                loading: true
+            }
+
         default:
             return {
                 ...state

@@ -7,7 +7,6 @@ import filterMarcas from "../../redux/actions/Filters/filterMarcas";
 import isLoading from '../../redux/actions/Loading/loading';
 import style from "./Categories.module.css"
 
-
 function Categories() {
     const dispatch = useDispatch();
     const categoriaState = useSelector(state => state.firebase.categories)
@@ -42,11 +41,15 @@ function Categories() {
                     <div>
                         <ul>
                             {marcas.map((marca) => (
-                                <div key={marca.id} onClick={() => handleFilterMarcas(marca.id)} value={selectedMarcas}>
-                                    <img className={style.marcaImg} src={marca.imagen} alt={marca.id} />
+                                <div key={marca.id} >
+                                    <img className={style.marcaImg} src={marca.imagen} alt={marca.id} onClick={() => handleFilterMarcas(marca.id)} value={selectedMarcas} />
                                     <p>{marca.id}</p>
                                 </div>
                             ))}
+                            <div>
+                                <img className={style.marcaImg} src={"../../../../public/assets/todas.png"} alt={"Todas las marcas"} onClick={() => handleFilterMarcas("Todas")} value={selectedMarcas} />
+                            </div>
+
                         </ul>
                         {/*                 <select value={selectedMarcas} onChange={(e) => handleFilterMarcas(e.target.value)}>
                             <option value="All">Todas</option>

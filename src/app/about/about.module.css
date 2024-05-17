@@ -9,8 +9,9 @@
 
 .seccion1{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 100px;
+    
 }
 
 .containerImg img{
@@ -35,7 +36,9 @@
     align-items: center;
     justify-content: center;
     margin: 20px 3px;
-    width: 40%;
+    width: 50%;
+    border-radius: 6%;
+
 }
 
 .containerText p{
@@ -57,11 +60,14 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    
 }
 
 .seccion2 p{
     width: 50%;
+    
 }
+
 
 
 
