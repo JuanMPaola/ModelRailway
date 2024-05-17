@@ -1,3 +1,23 @@
+.container{
+    text-align: center;
+}
+
+.container select {
+    padding: 2px;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+
+.containerCategoria{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .container h2{
     text-align: center;
 }
@@ -17,6 +37,23 @@
 
 .marcaImg:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.reset {
+    background: none;
+    border: none;
+    color: #FB3569;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 33px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 200ms;
+}
+
+.reset:hover {
+    color: #000000;
 }
 
 

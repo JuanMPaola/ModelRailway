@@ -5,13 +5,13 @@ const Footer = () => {
     return (
         <>
             <footer className={style.container}>
-                <div className={style.containerLinks}>
+{/*                 <div className={style.containerLinks}>
                     <h4>Contacto</h4>
                     <ul>
                         <li>Acerca de</li>
                         <li>Amigos</li>
                     </ul>
-                </div>
+                </div> */}
                 <div className={style.containerContacto}>
                     <h4>Contacto</h4>
                     <ul>

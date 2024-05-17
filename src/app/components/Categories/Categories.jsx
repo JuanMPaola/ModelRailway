@@ -45,7 +45,7 @@ function Categories() {
                 <div className={style.spinner}></div>
             ) : (
                 <>
-                <button onClick={handleResetFilters}>Resetear Filtros</button>
+                <h2 className={style.filtros}>Filtros</h2>
                     <div>
                         <ul>
                             {marcas.map((marca) => (
@@ -67,7 +67,7 @@ function Categories() {
                         </select> */}
                     </div>
 
-                    <div>
+                    <div className={style.containerCategoria}>
                         <h2>Categoria:</h2>
                         <select value={selectedCategory} onChange={(e) => handleFilter(e.target.value)}>
                             <option value="Todas">Todas</option>
@@ -76,6 +76,7 @@ function Categories() {
                             ))}
                         </select>
                     </div>
+                    <button onClick={handleResetFilters} className={style.reset}>Resetear Filtros</button>
                 </>
             )}
         </div>
