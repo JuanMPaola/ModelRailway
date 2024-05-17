@@ -9,7 +9,7 @@ function Navbar() {
         <>
             <nav className={style.container}>
                 <div className={style.imageNav}>
-                    <img src="/assets/logo2.jpg" alt="Logo" />
+                   {/*  <img src="/assets/logo2.jpg" alt="Logo" /> */}
                 </div>
 
                 <div className={style.titulo}>

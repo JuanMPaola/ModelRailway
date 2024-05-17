@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCategories, getMarcas } from '../../redux/actions';
 import filterCategories from "../../redux/actions/Filters/filterCategories";
 import filterMarcas from "../../redux/actions/Filters/filterMarcas";
+import resetFilters from "../../redux/actions/Filters/resetFilters";
 import isLoading from '../../redux/actions/Loading/loading';
 import style from "./Categories.module.css"
 
@@ -27,6 +28,12 @@ function Categories() {
         dispatch(filterMarcas(marca));
     }
 
+    const handleResetFilters = () =>{
+        setSelectedCategory("Todas");
+        setSelectedMarcas("Todas");
+        dispatch(resetFilters());
+    }
+
     useEffect(() => {
         dispatch(isLoading())
         dispatch(getCategories())
@@ -38,6 +45,7 @@ function Categories() {
                 <div className={style.spinner}></div>
             ) : (
                 <>
+                <button onClick={handleResetFilters}>Resetear Filtros</button>
                     <div>
                         <ul>
                             {marcas.map((marca) => (

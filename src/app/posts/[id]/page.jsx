@@ -8,6 +8,10 @@ import style from './page.module.css';
 function Detail({ params }) {
   const dispatch = useDispatch();
 
+  const id = params.id.replace(/%20/g, ' '); 
+
+  
+
   const post = useSelector(state => state.firebase.postId);
   const startLoading = useSelector(state => state.firebase.loading);
   const [mainImageIndex, setMainImageIndex] = useState(0);
@@ -18,7 +22,7 @@ function Detail({ params }) {
 
   useEffect(() => {
     dispatch(isLoading());
-    dispatch(getById(params.id));
+    dispatch(getById(id));
   }, [dispatch]);
 
   return (
@@ -44,7 +48,7 @@ function Detail({ params }) {
       </div>
       <div className={style.containerDetail}>
         <div>
-          <p>id: {post.id}</p>
+          <p>id: {id}</p>
           <p>categoria: {post.categoria}</p>
           <p>descripcion: {post.descripcion}</p>
           <p>disponible: {post.disponible}</p>

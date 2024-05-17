@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-around;
     gap: 50px;
+    min-height: 62vh;
 }
 
 .seccion1{

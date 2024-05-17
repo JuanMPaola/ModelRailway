@@ -6,5 +6,7 @@ export const GET_BYID = "GET_BYID";
 
 export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
 export const FILTER_MARCAS = "FILTER_MARCAS";
+export const RESET_FILTERS = "RESET_FILTERS";
+
 
 export const LOADING = "LOADING";
