@@ -19,6 +19,11 @@ const reducer = (state = initialState, action) => {
                 categories: action.payload,
                 loading: false,
             }
+        case "DELETE_CATEGORIES":
+            return {
+                ...state,
+                categories: state.categories.filter(cat => cat.id !== action.payload)
+            };
         case "GET_POSTEOS":
             return {
                 ...state,
@@ -26,11 +31,16 @@ const reducer = (state = initialState, action) => {
                 allPosteos: action.payload,
                 loading: false,
             }
-        case "GET_AMIGOS":
+        case "DELETE_POSTEOS":
+            return {
+                ...state,
+                posteos: state.allPosteos.filter(post => post.id !== action.payload)
+            };
+/*         case "GET_AMIGOS":
             return {
                 ...state,
                 amigos: action.payload
-            }
+            } */
         case "GET_MARCAS":
             return {
                 ...state,
