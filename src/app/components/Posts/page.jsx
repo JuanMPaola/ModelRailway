@@ -28,7 +28,7 @@ function Posts() {
             <ul>
               {posteos.map(posteo => (
                 <li className={style.card} key={posteo.id}>
-                  <img src={posteo.imagenes[0]} alt="" className={style.cardImage} />
+                  <img src={posteo.imagenes/* [0] */} alt="" className={style.cardImage} />
                   <Link href="/posts/[id]" as={`/posts/${posteo.id}`} key={posteo.id}>
                     <p className={style.cardTitle}>{posteo.id}</p>
                   </Link>

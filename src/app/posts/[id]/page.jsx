@@ -29,10 +29,14 @@ function Detail({ params }) {
     <div className={style.container}>
       <div className={style.imageContainer}>
         <div className={style.mainImage}>
-          <img src={post.imagenes && post.imagenes[mainImageIndex]} alt="" className={style.imagen} />
+        {post.imagenes && post.imagenes.length > 0 ? (
+            <img src={post.imagenes && post.imagenes[mainImageIndex]} alt="" className={style.imagen} />
+        ) : (
+            <img src="https://img.freepik.com/vector-premium/no-hay-foto-disponible-icono-vector-simbolo-imagen-predeterminado-imagen-proximamente-sitio-web-o-aplicacion-movil_87543-10615.jpg" alt="No hay foto" />
+        )}
         </div>
         <div className={style.imagenesSecundarias}>
-          {post.imagenes && post.imagenes.map((imagen, index) => (
+          {Array.isArray(post.imagenes) && post.imagenes.map((imagen, index) => (
             index !== mainImageIndex && (
               <div key={index}>
                 <img

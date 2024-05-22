@@ -59,7 +59,7 @@ function postForm() {
       <h1>Form Posts</h1>
       <Link href="/form">Categorias</Link>
       <br /><br />
-      <Link href="/form/amigos">Amigos</Link>
+{/*       <Link href="/form/amigos">Amigos</Link> */}
       <br /><br />
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Titulo</label>

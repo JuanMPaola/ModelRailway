@@ -1,4 +1,4 @@
-/* import { DELETE_CATEGORIES } from "../../types";
+import { DELETE_CATEGORIES } from "../../types";
 import { db } from "../../../../firebase"
 import { deleteDoc, doc } from "firebase/firestore";
 
@@ -17,4 +17,4 @@ const deleteCategories = (categoryId) => async (dispatch) =>{
     }
 }
 
-export default deleteCategories; */
+export default deleteCategories;

@@ -34,6 +34,7 @@ function Navbar() {
 {/*                         <li>
                             <Link href="">Amigos</Link>
                         </li> */}
+                        <li><Link href="/form">Form</Link></li>
                     </ul>
                 </div>
                 <div className={style.none}>
