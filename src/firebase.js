@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,7 +15,26 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+export const storage = getStorage(app)
 /* export const analytics = getAnalytics(app); */
 
+export async function uploadFile(files) {
+  if (files.length === 0) {
+    console.log("No file selected");
+    return;
+  }
+
+  const file = files[0];
+  const storageRef = ref(storage, `posts/${file.name}`);
+
+  const metadata = {
+    contentType: file.type, // Set the correct content type
+  };
+
+  await uploadBytes(storageRef, file, metadata)
+  const url = await getDownloadURL(storageRef)
+  return url
+
+}
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
