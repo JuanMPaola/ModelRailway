@@ -7,6 +7,7 @@ import { postPosts, getPosteos, deletePosteos, getMarcas } from '../../redux/act
 import useFormCategories from '../categories/hooks/useFormCategories'
 import Posts from '../../components/Posts/page'
 import style from "./page.module.css"
+import { uploadFile } from '@/src/firebase'
 
 function postForm() {
   const { categoriaState } = useFormCategories()
@@ -14,14 +15,16 @@ function postForm() {
   const posteos = useSelector(state => state.firebase.posteos)
   const marcas = useSelector(state => state.firebase.marcas)
   console.log(marcas, "Aca estan las marcas")
+
   const [postState, setPostState] = useState({
     available: true,
     marca: "",
     categories: "",
     description: "",
-    image: "",
+    images: [], 
     title: "",
-  })
+  });
+  
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -47,12 +50,22 @@ function postForm() {
     dispatch(deletePosteos(id))
   }
 
-/*   let marcas = [
-    { id: 1, title: "Marklin" },
-    { id: 2, title: "Fleischmann" },
-    { id: 3, title: "Roco" },
-    { id: 4, title: "Piko" }
-  ]; */
+  const handleImages = async (files) => {
+    try {
+      const urls = [];
+      for (const file of files) {
+        const url = await uploadFile([file]);
+        urls.push(url);
+      }
+      setPostState(prevState => ({
+        ...prevState,
+        image: [...prevState.images, ...urls] // Update the state with an array of URLs
+      }));
+    } catch (error) {
+      console.error(error);
+      alert('Hubo un problema al subir las imagenes.');
+    }
+  }
 
   return (
     <div>
@@ -93,7 +106,7 @@ function postForm() {
         <br /><br />
 
         <label htmlFor="">Imagenes</label>
-        <input type="file" name='image' value={postState.image} onChange={handleChange} />
+        <input type="file" multiple onChange={e => handleImages(e.target.files)} />
 
         <br /><br />
 
