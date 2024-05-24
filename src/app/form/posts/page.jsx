@@ -5,11 +5,10 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { postPosts, getPosteos, deletePosteos, getMarcas } from '../../redux/actions'
 import useFormCategories from '../categories/hooks/useFormCategories'
-import Posts from '../../components/Posts/page'
 import style from "./page.module.css"
 import { uploadFile } from '@/src/firebase'
 
-function postForm() {
+function PostForm() {
   const { categoriaState } = useFormCategories()
   console.log("categorias desde post", categoriaState)
   const posteos = useSelector(state => state.firebase.posteos)
