@@ -68,59 +68,49 @@ function postForm() {
   }
 
   return (
-    <div>
-      <h1>Form Posts</h1>
-      <Link href="/form">Categorias</Link>
-      <br /><br />
-{/*       <Link href="/form/amigos">Amigos</Link> */}
-      <br /><br />
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="">Titulo</label>
-        <input type="text" name='title' value={postState.title} onChange={handleChange} />
-
-        <br /><br />
-
-        <label htmlFor="">Descripcion</label>
-        <input type="text" name='description' value={postState.description} onChange={handleChange} />
-
-        <br /><br />
-
-        <label htmlFor="">Marca</label>
-        <select name="marca" value={postState.marca} onChange={handleChange}>
-          <option value="-"> </option>
-          {marcas.map((marca) => (
-            <option key={marca.id} value={marca.id}>{marca.id}</option>
-          ))}
-        </select>
-
-        <br /><br />
-
-        <label htmlFor="">Categoria</label>
-        <select name="categories" value={postState.categories} onChange={handleChange}>
-          <option value="-"> </option>
-          {categoriaState.map((categoria) => (
-            <option key={categoria.id} value={categoria.title}>{categoria.title}</option>
-          ))}
-        </select>
-
-        <br /><br />
-
-        <label htmlFor="">Imagenes</label>
-        <input type="file" multiple onChange={e => handleImages(e.target.files)} />
-
-        <br /><br />
-
-        <button type='submit'>Submit</button>
-      </form>
-
-      <br></br>
-
-      <h2>Posteos</h2>
-
-
-
+    <div className={style.container}>
+      <div className={style.containerForm}>
+      <h2>Form Posts</h2>
+        <form onSubmit={handleSubmit} className={style.form}>
+          <div>
+            <label htmlFor="">Titulo</label>
+            <input type="text" name='title' value={postState.title} onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="">Descripcion</label>
+            <input type="text" name='description' value={postState.description} onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="">Marca</label>
+            <select name="marca" value={postState.marca} onChange={handleChange}>
+              <option value="-"> </option>
+              {marcas.map((marca) => (
+                <option key={marca.id} value={marca.id}>{marca.id}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="">Categoria</label>
+            <select name="categories" value={postState.categories} onChange={handleChange}>
+              <option value="-"> </option>
+              {categoriaState.map((categoria) => (
+                <option key={categoria.id} value={categoria.title}>{categoria.title}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="">Imagenes</label>
+            <input type="file" multiple onChange={e => handleImages(e.target.files)} />
+          </div>
+          <div>
+            <button type='submit'>Submit</button>
+          </div>
+        </form>
+        <Link href="/form">Categorias</Link>
+      </div>
       <div className={style.containerCards}>
 {/*           <Posts/> */}
+      <h2>Posteos</h2>
           <ul>
               {posteos.map(posteo => (
                 <li className={style.card} key={posteo.id}>

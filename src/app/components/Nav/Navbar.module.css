@@ -32,8 +32,13 @@
 }
 
 .none img{
-/*     width: 35%; */
     width: 146px;
+}
+
+.logo{
+    width: 146px;
+    border-radius: 100px;
+    
 }
 
 .imageNav{

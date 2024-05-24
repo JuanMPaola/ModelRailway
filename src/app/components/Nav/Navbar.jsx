@@ -12,8 +12,8 @@ function Navbar() {
         <>
             <nav className={style.container}>
                 <div className={style.none}>
-                   {/*  <img src="/assets/logo2.jpg" alt="Logo" /> */}
-                    <img src="/assets/lineasNav.png" alt="" />
+                    <img src="/assets/logo.jpg" alt="Logo" className={style.logo}/>
+                    {/* <img src="/assets/lineasNav.png" alt="" /> */}
                 </div>
 
                 <div className={style.titulo}>
