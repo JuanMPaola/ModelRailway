@@ -101,8 +101,8 @@ function PostForm() {
             <label htmlFor="">Imagenes</label>
             <input type="file" multiple onChange={e => handleImages(e.target.files)} />
           </div>
-          <div>
-            <button type='submit'>Submit</button>
+          <div className={style.btnPublicar}>
+            <button type='submit' className={style.publicar}>Publicar</button>
           </div>
         </form>
         <Link href="/form">Categorias</Link>
@@ -131,3 +131,4 @@ function PostForm() {
 }
 
 export default PostForm
+
