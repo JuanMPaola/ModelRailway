@@ -105,7 +105,6 @@ function PostForm() {
             <button type='submit' className={style.publicar}>Publicar</button>
           </div>
         </form>
-        <Link href="/form">Categorias</Link>
       </div>
       <div className={style.containerCards}>
 {/*           <Posts/> */}
