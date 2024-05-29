@@ -137,3 +137,26 @@
     font-size: 13px;
     color: #1797b8;
 }
+
+.divEliminar{
+    /* align-items: center; */
+    display: flex;
+    /* text-align: center; */
+    /* justify-content: center; */
+}
+
+.eliminar{
+color: red;
+/* border-bottom: 1px solid red; */
+width: 60px;
+border: 1px solid red;
+border-radius: 10px;
+padding: 1px 6px;
+cursor: pointer;
+}
+
+@media (max-width: 647px) {
+.container{
+    flex-direction: column;
+}
+}
