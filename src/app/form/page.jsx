@@ -1,11 +1,11 @@
 import React from 'react'
-import FormCategories from './categories/page'
+import PostForm from './posts/page'
 
 export default function Forms() {
   return (
     <div>
         
-        <FormCategories/>
+        <PostForm/>
 
     </div>
   )

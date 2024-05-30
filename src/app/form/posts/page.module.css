@@ -25,7 +25,7 @@
     -12px -12px 18px #ffffff;
 }
 
-.form div{
+.divForm{
     display: flex;
     flex-direction: column;
 }
@@ -141,6 +141,8 @@
 .divEliminar{
     /* align-items: center; */
     display: flex;
+    align-items: center;
+    justify-content: center;
     /* text-align: center; */
     /* justify-content: center; */
 }
@@ -148,12 +150,40 @@
 .eliminar{
 color: red;
 /* border-bottom: 1px solid red; */
-width: 60px;
+/* width: 60px; */
 border: 1px solid red;
 border-radius: 10px;
 padding: 1px 6px;
 cursor: pointer;
+text-align: center;
 }
+
+.imagenMuestra{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.divImagenMuestra button{
+    background: #ffffff;
+    border: none;
+    color: red;
+    cursor: pointer;
+    border: 1px solid red;
+    border-radius: 26px;
+    padding: 1px 4px;
+    transform: translateX(42px) translateY(22px);
+}
+
+.divImagenMuestra img{   
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 5px;
+    border-radius: 15px;
+} 
 
 @media (max-width: 647px) {
 .container{

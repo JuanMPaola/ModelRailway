@@ -6,13 +6,15 @@ const postPosts = (post) => async (dispatch) => {
     try {
         const docRef = doc(db, "Post", post.title);
 
+        console.log(post)
+
         await setDoc(docRef, {
             disponible: post.available,
             categoria: post.categories,
             descripcion: post.description,
             marca: post.marca,
-            imagenes: post.image,
-            title: post.title
+            imagenes: post.images,
+            title: post.title,
         });
 
         dispatch({
@@ -20,7 +22,8 @@ const postPosts = (post) => async (dispatch) => {
             payload: post,
         });
     } catch (error) {
-        alert("Error al postear posteo", error);
+        console.error("Error posting data: ", error);
+        alert("Hubo un problema al publicar el post. Intente nuevamente en 2 segundos.");
     }
 };
 

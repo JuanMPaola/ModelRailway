@@ -92,3 +92,13 @@
     transform: rotate(360deg);
     }
 }
+
+.noHayPosteos{
+    margin-top: 50px;
+}
+
+.noHayPosteos p{
+    text-align: center;
+    margin: 50px;
+    font-size: 40px;
+}

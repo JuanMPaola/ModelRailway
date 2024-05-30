@@ -18,7 +18,7 @@ export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app)
 /* export const analytics = getAnalytics(app); */
 
-export async function uploadFile(files) {
+export async function uploadFile(files, postName) {
   if (files.length === 0) {
     console.log("No file selected");
     return;
