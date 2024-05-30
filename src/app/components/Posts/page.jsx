@@ -40,9 +40,10 @@ function Posts() {
                   <Link href="/posts/[id]" as={`/posts/${posteo.id}`} key={posteo.id}>
                     <p className={style.cardTitle}>{posteo.id}</p>
                   </Link>
-                  <p className={style.cardDes}>{posteo.descripcion}</p>
-                  <p>{posteo.disponible}</p>
+                  <p className={style.cardDes}>{posteo.codigo}</p>
                   <p>{posteo.categoria}</p>
+                  <br></br>
+                  {posteo.disponible ? <p>Disponible</p>: <p>No disponible</p>}
                 </li>
               ))}
             </ul>

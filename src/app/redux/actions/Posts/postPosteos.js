@@ -15,6 +15,7 @@ const postPosts = (post) => async (dispatch) => {
             marca: post.marca,
             imagenes: post.images,
             title: post.title,
+            codigo: post.codigo
         });
 
         dispatch({

@@ -25,6 +25,7 @@ function PostForm() {
     description: "",
     images: [],
     title: "",
+    codigo: ""
   });
 
   const [errors, setErrors] = useState([])
@@ -64,6 +65,7 @@ function PostForm() {
       description: "",
       images: [],
       title: "",
+      codigo: ""
     })
   };
 
@@ -126,6 +128,15 @@ function PostForm() {
             </label>
             <input type="text" name='description' value={postState.description} onChange={handleChange} />
           </div>
+
+          <div className={style.divForm}>
+            <label htmlFor="">
+              Codigo
+            </label>
+            <input type="text" name='codigo' value={postState.codigo} onChange={handleChange} />
+          </div>
+
+
           <div className={style.divForm}>
             <label htmlFor="">
               Marca
@@ -156,8 +167,8 @@ function PostForm() {
             <div className={style.imagenMuestra}>
               {postState.images.length > 0 ? postState.images.map((image, index) => (
                 <div key={index} className={style.divImagenMuestra}>
-                  <button type="button" onClick={() => deletePreview(image)}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="#d22828" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg></button>
-                  <img src={image} alt={`upload-${index}`}/>
+                  <button type="button" onClick={() => deletePreview(image)}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="#d22828" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" /></svg></button>
+                  <img src={image} alt={`upload-${index}`} />
                 </div>
               )) : <p>No hay imágenes seleccionadas</p>}
             </div>
@@ -191,9 +202,9 @@ function PostForm() {
               <Link href="/posts/[id]" as={`/posts/${posteo.id}`} key={posteo.id}>
                 <p className={style.cardTitle}>{posteo.id}</p>
               </Link>
-              <p className={style.cardDes}>{posteo.descripcion}</p>
-              <p>{posteo.disponible}</p>
+              <p className={style.cardDes}>{posteo.codigo}</p>
               <p>{posteo.categoria}</p>
+              {posteo.disponible ? <p>Disponible</p> : <p>No disponible</p>}
             </li>
           ))}
         </ul>
