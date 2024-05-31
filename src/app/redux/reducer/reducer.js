@@ -86,7 +86,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 postId: action.payload,
-                loading: true
+                loading: false
             }
 
         default:

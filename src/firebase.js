@@ -24,8 +24,8 @@ export async function uploadFile(files, postName) {
     return;
   }
 
-  const file = files[0];
-  const storageRef = ref(storage, `posts/${file.name}`);
+  const file = files[0]; // ACA ABAJO SE CAMBIA LA CARPETA DE LA DB
+  const storageRef = ref(storage, `post/${file.name}`);
 
   const metadata = {
     contentType: file.type, // Set the correct content type
