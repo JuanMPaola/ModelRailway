@@ -45,7 +45,7 @@ function Categories() {
                 <div className={style.spinner}></div>
             ) : (
                 <>
-                <h2 className={style.filtros}>Filtros</h2>
+                <h2 className={style.filtros}>Marcas</h2>
                     <div>
                         <ul>
                             {marcas.map((marca) => (
@@ -54,19 +54,10 @@ function Categories() {
                                     <p>{marca.id}</p>
                                 </div>
                             ))}
-                            <div>
-                                <img className={style.marcaImg} src={"../../../../public/assets/todas.png"} alt={"Todas las marcas"} onClick={() => handleFilterMarcas("Todas")} value={selectedMarcas} />
-                            </div>
 
                         </ul>
-                        {/*                 <select value={selectedMarcas} onChange={(e) => handleFilterMarcas(e.target.value)}>
-                            <option value="All">Todas</option>
-                            {marcas.map((marca) => (
-                                <option key={marca.id} value={marca.id}>{marca.id}</option>
-                            ))}
-                        </select> */}
                     </div>
-
+                            <br />
                     <div className={style.containerCategoria}>
                         <h2>Categoria:</h2>
                         <select value={selectedCategory} onChange={(e) => handleFilter(e.target.value)}>
